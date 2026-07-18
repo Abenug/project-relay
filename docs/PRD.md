@@ -22,6 +22,14 @@ The platform connects senders, drivers, and receivers by providing live location
 
 The goal is to eliminate the need for repeated phone calls between receivers and drivers by providing transparent real-time delivery visibility.
 
+## Product Vision
+
+Project Relay is not a delivery service.
+
+It is a delivery coordination platform that enhances the existing package transportation process used by public transport drivers.
+
+Instead of changing how people send packages, Project Relay removes communication barriers by providing transparent, real-time delivery tracking and status updates for senders, drivers, and receivers.
+
 ---
 
 # 2. **Problem Statement**
@@ -89,10 +97,10 @@ The sender is the person who gives a package to a driver and creates the deliver
 ### Main Actions
 
 - Register/Login.
-- Create a new delivery.
+- Create a new delivery (optional).
 - Enter receiver information.
 - Enter package details.
-- Assign or provide driver information.
+- Send the delivery request to a driver for acceptance.
 - View delivery status.
 - Receive delivery notifications.
 
@@ -102,7 +110,9 @@ The sender is the person who gives a package to a driver and creates the deliver
 
 ### Description
 
-The driver is the person transporting the package from the sender to the receiver.
+The driver is the central participant in every delivery.
+
+Drivers transport packages using their normal travel routes and are responsible for creating or accepting delivery requests, sharing live location during the journey, and confirming delivery completion.
 
 ### Goals
 
@@ -174,29 +184,46 @@ The main delivery process in Project Relay follows these steps:
 
 ## Step 1: Create Delivery
 
-The sender creates a new delivery request.
+There are two ways to create a delivery.
 
-Information provided:
+### Option A (Primary)
 
-- Package details.
-- Receiver information.
+The driver creates the delivery after accepting a package from the sender.
+
+The driver enters:
+
+- Receiver name.
+- Receiver phone number.
+- Package description.
 - Destination.
-- Driver information (if already available).
 
-The system creates a unique delivery record.
+The receiver immediately receives an SMS containing delivery information and a tracking link.
 
 ---
 
-## Step 2: Driver Receives Delivery
+### Option B (Optional)
 
-The driver receives the delivery request.
+If the sender already has Project Relay, they can create the delivery request before handing the package to the driver.
 
-The driver can:
+The driver receives the request and can:
 
 - Accept the delivery.
 - Reject the delivery.
 
-After accepting, the delivery status changes to: 
+Once accepted, the receiver receives the tracking information.
+
+---
+
+## Step 2: Driver Confirms Delivery
+
+If the driver created the delivery, it becomes active immediately.
+
+If the sender created the delivery, the driver reviews the request and chooses to:
+
+- Accept.
+- Reject.
+
+After acceptance, the delivery status changes to:
 
 Accepted
 
@@ -287,14 +314,22 @@ Features:
 
 # 5.2 Delivery Creation
 
-Senders can create delivery requests.
+Project Relay supports flexible delivery creation.
 
-Information required:
+Primary workflow:
 
+- Driver creates the delivery after receiving the package.
+
+Optional workflow:
+
+- Sender creates the delivery and sends it to the driver for approval.
+
+Required information:
+
+- Receiver name.
+- Receiver phone number.
 - Package description.
-- Receiver information.
 - Destination.
-- Driver information.
 
 ---
 
@@ -434,6 +469,20 @@ The system should be designed to support future growth, including:
 - Additional delivery features.
 
 ---
+
+# Product Design Principles
+
+Project Relay is designed to improve the existing package delivery process rather than replace it.
+
+The application fits naturally into the current workflow used by public transport drivers, senders, and receivers.
+
+Core principles:
+
+- Keep delivery creation simple.
+- Minimize driver interaction while driving.
+- Reduce unnecessary phone calls.
+- Provide transparency for receivers.
+- Require minimal changes to existing habits.
 
 # 7. Future Roadmap
 
