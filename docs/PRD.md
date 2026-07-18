@@ -32,7 +32,11 @@ Instead of changing how people send packages, Project Relay removes communicatio
 
 ---
 
+
+
 # 2. **Problem Statement**
+
+
 
 ## Current Situation
 
@@ -45,7 +49,11 @@ The traditional process works like this:
 3. The sender shares this information with the receiver.
 4. The receiver contacts the driver to ask about the delivery location and estimated arrival time.
 
+
+
 ## Problems With The Current Process
+
+
 
 ### 1. Lack of Real-Time Visibility
 
@@ -75,13 +83,19 @@ Project Relay solves this problem by creating a real-time delivery tracking syst
 
 ---
 
+
+
 # 3. **Users & Roles**
 
 Project Relay has three primary user roles:
 
 ---
 
+
+
 ## 3.1 Sender
+
+
 
 ### Description
 
@@ -93,6 +107,8 @@ The sender is the person who gives a package to a driver and creates the deliver
 - Provide package and receiver information.
 - Share delivery details with the receiver.
 - Monitor delivery progress.
+
+
 
 ### Main Actions
 
@@ -106,7 +122,11 @@ The sender is the person who gives a package to a driver and creates the deliver
 
 ---
 
+
+
 ## 3.2 Driver
+
+
 
 ### Description
 
@@ -121,6 +141,8 @@ Drivers transport packages using their normal travel routes and are responsible 
 - Update delivery status.
 - Complete deliveries safely.
 
+
+
 ### Main Actions
 
 - Register/Login.
@@ -133,7 +155,11 @@ Drivers transport packages using their normal travel routes and are responsible 
 
 ---
 
+
+
 ## 3.3 Receiver
+
+
 
 ### Description
 
@@ -146,6 +172,8 @@ The receiver is the person waiting to receive the package.
 - Prepare for package arrival.
 - Confirm package reception.
 
+
+
 ### Main Actions
 
 - Access delivery tracking.
@@ -155,6 +183,8 @@ The receiver is the person waiting to receive the package.
 - Confirm package received.
 
 ---
+
+
 
 ## User Relationship
 
@@ -176,11 +206,15 @@ Receiver tracks and receives package
 
 ---
 
+
+
 # 4. Core User Flow
 
 The main delivery process in Project Relay follows these steps:
 
 ---
+
+
 
 ## Step 1: Create Delivery
 
@@ -201,6 +235,8 @@ The receiver immediately receives an SMS containing delivery information and a t
 
 ---
 
+
+
 ### Option B (Optional)
 
 If the sender already has Project Relay, they can create the delivery request before handing the package to the driver.
@@ -213,6 +249,8 @@ The driver receives the request and can:
 Once accepted, the receiver receives the tracking information.
 
 ---
+
+
 
 ## Step 2: Driver Confirms Delivery
 
@@ -229,6 +267,8 @@ Accepted
 
 ---
 
+
+
 ## Step 3: Start Delivery Trip
 
 When the driver starts moving:
@@ -243,6 +283,8 @@ In Transit
 
 ---
 
+
+
 ## Step 4: Receiver Tracks Delivery
 
 The receiver can view:
@@ -256,6 +298,8 @@ The receiver no longer needs to call the driver repeatedly.
 
 ---
 
+
+
 ## Step 5: Delivery Completion
 
 When the driver reaches the destination:
@@ -268,6 +312,8 @@ Delivery status changes to:
 Completed
 
 ---
+
+
 
 # Delivery Status Flow
 
@@ -291,11 +337,15 @@ Completedss
 
 ---
 
+
+
 # 5. MVP Features
 
 The first version of Project Relay focuses on solving the main problem: allowing receivers to track deliveries without repeatedly contacting drivers.
 
 ---
+
+
 
 # 5.1 User Authentication
 
@@ -311,6 +361,8 @@ Features:
   - Receiver.
 
 ---
+
+
 
 # 5.2 Delivery Creation
 
@@ -333,6 +385,8 @@ Required information:
 
 ---
 
+
+
 # 5.3 Driver Delivery Management
 
 Drivers can manage assigned deliveries.
@@ -346,6 +400,8 @@ Features:
 
 ---
 
+
+
 # 5.4 Real-Time Location Tracking
 
 The core feature of Project Relay.
@@ -358,6 +414,8 @@ Features:
 - Delivery route visibility.
 
 ---
+
+
 
 # 5.5 Delivery Status Updates
 
@@ -373,6 +431,8 @@ Statuses:
 
 ---
 
+
+
 # 5.6 Notifications
 
 Users receive important delivery updates.
@@ -385,6 +445,8 @@ Examples:
 - Delivery completed.
 
 ---
+
+
 
 # MVP Success Criteria
 
@@ -400,11 +462,15 @@ Without needing to call the driver.
 
 ---
 
+
+
 # 6. Non-Functional Requirements
 
 Non-functional requirements define the quality standards that Project Relay should maintain.
 
 ---
+
+
 
 ## 6.1 Performance
 
@@ -416,6 +482,8 @@ The application should:
 
 ---
 
+
+
 ## 6.2 Reliability
 
 The system should:
@@ -425,6 +493,8 @@ The system should:
 - Maintain accurate delivery status.
 
 ---
+
+
 
 ## 6.3 Security
 
@@ -439,6 +509,8 @@ Requirements:
 
 ---
 
+
+
 ## 6.4 Privacy
 
 Location sharing should:
@@ -448,6 +520,8 @@ Location sharing should:
 - Stop automatically when delivery is completed.
 
 ---
+
+
 
 ## 6.5 Usability
 
@@ -459,6 +533,8 @@ The application should be:
 
 ---
 
+
+
 ## 6.6 Scalability
 
 The system should be designed to support future growth, including:
@@ -469,6 +545,8 @@ The system should be designed to support future growth, including:
 - Additional delivery features.
 
 ---
+
+
 
 # Product Design Principles
 
@@ -484,11 +562,15 @@ Core principles:
 - Provide transparency for receivers.
 - Require minimal changes to existing habits.
 
+
+
 # 7. Future Roadmap
 
 The following features are outside the MVP but are planned for future releases.
 
 ---
+
+
 
 ## Version 2
 
@@ -500,6 +582,8 @@ The following features are outside the MVP but are planned for future releases.
 
 ---
 
+
+
 ## Version 3
 
 - Online payments.
@@ -509,6 +593,8 @@ The following features are outside the MVP but are planned for future releases.
 - Business accounts.
 
 ---
+
+
 
 ## Version 4
 
@@ -520,6 +606,8 @@ The following features are outside the MVP but are planned for future releases.
 
 ---
 
+
+
 # Long-Term Vision
 
 Project Relay aims to become a trusted delivery coordination platform that connects senders, drivers, and receivers through transparent, real-time package tracking.
@@ -527,6 +615,8 @@ Project Relay aims to become a trusted delivery coordination platform that conne
 The long-term goal is to reduce communication barriers, improve delivery efficiency, and create a better delivery experience for everyone involved.
 
 ---
+
+
 
 # Document Information
 

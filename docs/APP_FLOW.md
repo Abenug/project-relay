@@ -208,4 +208,72 @@ Open Specific Delivery Tracking Screen
 
 ↓
 
-Return to My Deliveries
+Return to My Deliveries  
+
+---
+
+# Home Dashboard Flow
+
+The Home screen serves as the user's personal dashboard.
+
+Its primary purpose is to immediately show any active deliveries that require the user's attention.
+
+## Priority Order
+
+1. Active Deliveries
+2. Quick Actions
+3. Activity Summary
+
+---
+
+## Active Delivery
+
+If the user has one or more active deliveries, the Home screen displays the highest-priority active delivery at the top.
+
+The delivery card includes:
+
+- Package description
+- Current delivery status
+- Estimated arrival time (ETA)
+- Remaining distance
+- Driver vehicle information
+- "Track Live" action
+
+Selecting "Track Live" opens the Delivery Tracking screen.
+
+---
+
+## No Active Deliveries
+
+If there are no active deliveries, the dashboard displays an empty state.
+
+Example:
+
+"No active deliveries.
+
+When someone sends you a package, it will appear here automatically."
+
+---
+
+## Quick Actions
+
+The Home screen provides quick access to common actions.
+
+Available actions depend on the user's capabilities.
+
+Examples:
+
+- Send Package
+- Create Delivery (Driver only)
+
+---
+
+## Activity Summary
+
+The dashboard provides a summary of recent activity, including:
+
+- Active received deliveries
+- Sent deliveries
+- Driver deliveries (for registered drivers)
+
+This section provides an overview but is lower priority than active deliveries.
