@@ -6,77 +6,34 @@ Version: 1.0
 
 ---
 
-# Overview
+# 1. Overview
 
-Project Relay is a single mobile application that supports package coordination between public transport drivers, senders, and receivers.
+Project Relay uses a single account system where users can have multiple capabilities.
 
-The application improves the existing package transportation process by replacing repeated phone calls with real-time tracking and delivery updates.
+A user can be:
 
----
+- Sender
+- Receiver
+- Driver
 
-# User Philosophy
+The application adapts based on the user's activities.
 
-Project Relay does not assign permanent user roles.
-
-Every user has one account.
-
-A user performs different actions depending on the situation.
-
-Examples:
-
-- A user may send a package today.
-- The same user may receive a package tomorrow.
-- The same user may later become a driver.
-
-The application automatically unlocks features based on the user's actions and profile.
+A person can send a package today and become a driver tomorrow using the same account.
 
 ---
 
-# User Account
+# 2. First Time User Flow
 
-Every account contains:
+```
+Open App
 
-- Phone Number
-- Full Name
-- Profile Picture (Optional)
-
-The phone number is the unique identifier for every user.
-
-Users stay logged in after registration unless they manually log out or reinstall the application.
-
----
-
-# Driver Profile
-
-Any registered user can become a driver.
-
-Creating a driver profile unlocks driver features.
-
-Driver information includes:
-
-- Vehicle Plate Number
-- Vehicle Type
-- Optional Usual Route
-
-Once approved, driver features become available automatically.
-
----
-
-# Application Startup Flow
+↓
 
 Splash Screen
 
 ↓
 
-Is user logged in?
-
-↓
-
-YES
-
-↓
-
-Open Home Screen
+Check if user is logged in
 
 ↓
 
@@ -84,196 +41,398 @@ NO
 
 ↓
 
-Register/Login
+Onboarding
 
 ↓
 
-Phone Number
+Register / Login
 
 ↓
 
-OTP Verification
+Create Profile
 
 ↓
 
-Enter Name
-
-↓
-
-Add Profile Picture (Optional)
-
-↓
-
-Open Home Screen
+Home Dashboard
+```
 
 ---
 
-# Home Screen Philosophy
+# 3. Returning User Flow
 
-The Home Screen changes based on the user's available features.
+```
+Open App
+
+↓
+
+Splash Screen
+
+↓
+
+Check Authentication
+
+↓
+
+YES
+
+↓
+
+Home Dashboard
+```
+
+Returning users do not need to login repeatedly.
+
+---
+
+# 4. Main Navigation
+
+Bottom Navigation:
+
+```
+🏠 Home
+
+📦 My Packages
+
+🚗 Driver
+
+👤 Profile
+```
+
+---
+
+# 5. Home Flow
+
+The Home screen is the user's main dashboard.
+
+The main section is:
+
+## Right Now
+
+It displays the latest important activities.
+
+Activities are ordered by the latest update.
 
 Examples:
 
-Receiver:
-
-- My Deliveries
-
-Sender:
-
-- Send Package
-
-Driver:
-
-- Driver Dashboard
-- New Delivery
-
-A user may access multiple features without switching accounts.
+- Package arriving soon
+- Package sent and being transported
+- Active driver trip
 
 ---
 
-# Main Navigation
+# 6. Sender Flow
 
-Project Relay uses a four-tab navigation system:
+A sender wants to send a package.
 
-## Home
+Flow:
 
-Personal dashboard showing user's current activity and quick actions.
-
-Examples:
-
-- Active received packages.
-- Sent packages.
-- Driver activity.
-- Quick actions.
-
-The dashboard adapts based on available user capabilities.
-
----
-
-## My Deliveries
-
-Shows packages associated with the user.
-
-Includes:
-
-- Incoming deliveries.
-- Delivery tracking.
-- Delivery history.
-
-When opened from an SMS tracking link, the app opens the specific delivery directly.
-
----
-
-## Driver
-
-Provides driver-related features.
-
-For users without a driver profile:
-
-- Show driver registration option.
-
-For registered drivers:
-
-- Driver dashboard.
-- Create delivery.
-- Manage active deliveries.
-
----
-
-## Profile
-
-Contains:
-
-- Personal information.
-- Profile picture.
-- Driver profile.
-- Settings.
-- Account management.
-
----
-
-# Deep Link Flow
-
-When a receiver opens a tracking link from SMS:
-
-SMS Link
+```
+Home
 
 ↓
 
-Open Application
+Send Package
 
 ↓
 
-Open Specific Delivery Tracking Screen
+Enter Package Information
 
 ↓
 
-Return to My Deliveries  
+Enter Receiver Information
+
+↓
+
+Submit Package Request
+
+↓
+
+Package waits for driver/trip assignment
+
+↓
+
+Driver accepts package
+
+↓
+
+Receiver receives SMS notification
+
+↓
+
+Package tracking begins
+```
 
 ---
 
-# Home Dashboard Flow
+# 7. Driver Flow
 
-The Home screen serves as the user's personal dashboard.
+The driver is the main creator of trips.
 
-Its primary purpose is to immediately show any active deliveries that require the user's attention.
-
-## Priority Order
-
-1. Active Deliveries
-2. Quick Actions
-3. Activity Summary
-
----
-
-## Active Delivery
-
-If the user has one or more active deliveries, the Home screen displays the highest-priority active delivery at the top.
-
-The delivery card includes:
-
-- Package description
-- Current delivery status
-- Estimated arrival time (ETA)
-- Remaining distance
-- Driver vehicle information
-- "Track Live" action
-
-Selecting "Track Live" opens the Delivery Tracking screen.
-
----
-
-## No Active Deliveries
-
-If there are no active deliveries, the dashboard displays an empty state.
+The driver already has a journey and creates a trip based on that route.
 
 Example:
 
-"No active deliveries.
+Addis Ababa → Adama
 
-When someone sends you a package, it will appear here automatically."
+Flow:
+
+```
+Driver opens app
+
+↓
+
+Driver Dashboard
+
+↓
+
+Create Trip
+
+↓
+
+Enter:
+
+- Starting location
+- Destination
+- Departure time
+- Vehicle information
+
+↓
+
+Trip created
+
+↓
+
+Available package requests matching the route appear
+
+↓
+
+Driver accepts packages
+
+↓
+
+Receiver receives SMS
+
+↓
+
+Driver starts journey
+
+↓
+
+Location tracking begins automatically
+```
 
 ---
 
-## Quick Actions
+# 8. Automatic Journey Start
 
-The Home screen provides quick access to common actions.
+The system should avoid depending on the driver remembering to press buttons.
 
-Available actions depend on the user's capabilities.
+After the driver accepts packages:
 
-Examples:
+```
+Package accepted
 
-- Send Package
-- Create Delivery (Driver only)
+↓
+
+Receiver SMS sent
+
+↓
+
+System prepares tracking
+
+↓
+
+Driver leaves starting location
+
+↓
+
+GPS movement detected
+
+↓
+
+Trip status becomes:
+
+On The Way
+```
 
 ---
 
-## Activity Summary
+# 9. Receiver Flow
 
-The dashboard provides a summary of recent activity, including:
+The receiver normally does not need to create anything.
 
-- Active received deliveries
-- Sent deliveries
-- Driver deliveries (for registered drivers)
+The receiver receives an SMS:
 
-This section provides an overview but is lower priority than active deliveries.
+Example:
+
+"Hello, I am driver Ahmed.
+I received your package.
+Track your package here:
+[Link]"
+
+Flow:
+
+```
+Open SMS Link
+
+↓
+
+If app installed:
+
+Open package tracking screen
+
+↓
+
+If app not installed:
+
+Redirect to app installation
+
+↓
+
+Open receiver tracking experience
+
+↓
+
+View:
+
+- Package information
+- Driver information
+- Vehicle plate
+- Current location
+- Estimated arrival time
+```
+
+---
+
+# 10. Package Tracking Flow
+
+```
+Package accepted
+
+↓
+
+Trip starts
+
+↓
+
+Driver location updates
+
+↓
+
+Backend processes location
+
+↓
+
+Receiver sees:
+
+- Current driver location
+- Route progress
+- Estimated arrival time
+
+↓
+
+Driver reaches destination
+
+↓
+
+Receiver identifies package using:
+
+- Receiver name
+- Package description
+
+↓
+
+Package handed over
+
+↓
+
+Package status becomes:
+
+Completed
+```
+
+---
+
+# 11. Driver Registration Flow
+
+Every user can become a driver.
+
+The Driver tab is available for everyone.
+
+First time:
+
+```
+Tap Driver
+
+↓
+
+Not a driver yet
+
+↓
+
+Message:
+
+"You are not registered as a driver."
+
+↓
+
+Register as Driver
+
+↓
+
+Enter:
+
+- Driver information
+- Vehicle information
+
+↓
+
+Driver access enabled
+```
+
+---
+
+# 12. Profile Flow
+
+Users can manage:
+
+- Profile picture
+- Name
+- Phone number
+- Driver status
+- Account settings
+
+---
+
+# 13. Multiple Role Behavior
+
+One account can have multiple capabilities.
+
+Example:
+
+Monday:
+
+User sends a package.
+
+Tuesday:
+
+Same user receives a package.
+
+Friday:
+
+Same user drives a public transport vehicle and creates a trip.
+
+No separate accounts are required.
+
+---
+
+# 14. Core User Experience Principle
+
+Project Relay should reduce communication effort.
+
+The system should replace repeated phone calls with:
+
+- Automatic notifications
+- Real-time location
+- Clear package status
+- Estimated arrival time
