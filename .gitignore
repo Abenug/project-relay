@@ -1,0 +1,14 @@
+# Environment files
+.env
+**/.env
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Postman local settings
+.postman/
+
+# IDE settings
+.vscode/
+.idea/
